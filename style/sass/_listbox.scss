@@ -1,0 +1,74 @@
+.easy-component.listbox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    & > .select {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0.5em;
+        flex: 1;
+        font-size: 1.5em;
+        padding: 1em;
+        background-color: var(--ec-bg-hex);
+        color: var(--ec-text-hex);
+        appearance: none;
+        border: none;
+        box-shadow: 0 0.125em 0.4em -0.1em rgba(0, 0, 0, 0.1), 0 0.125em 0.25em -0.1em rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
+        & > .selected.placeholder {
+            opacity: .7;
+        }
+
+        &:focus {
+            border-color: var(--ec-accent-hex);
+            outline: none;
+            box-shadow: 0 0 0 0.2em rgba(var(--ec-accent-rgb), 0.25);
+        }
+
+        & > .arrow {
+            color: rgba(var(--ec-text-rgb), .75);
+            font-size: inherit;
+        }
+    }
+
+    & > .list {
+        position: absolute;
+        top: 110%;
+        overflow: hidden;
+        background-color: var(--ec-bg-hex);
+        border-radius: 0.5em;
+        font-size: 1.25em;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms linear, visibility 200ms linear;
+        box-shadow: 0 0.125em 0.4em -0.1em rgba(0, 0, 0, 0.1), 0 0.125em 0.25em -0.1em rgba(0, 0, 0, 0.1);
+
+        &.opened {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        & > .list-item {
+            width: 100%;
+            padding: 1em;
+
+            &:hover {
+                background-color: hsl(var(--ec-accent-h), var(--ec-accent-s), 95%);
+                color: var(--ec-accent-hex);
+            }
+
+            &:active, &.selected {
+                color: var(--ec-accent-hex);
+            }
+        }
+
+        &.align-right {
+            left: initial;
+        }
+    }
+}
