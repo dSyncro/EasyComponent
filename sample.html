@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Components Showcase</title>
-    <link rel="stylesheet" href="style/css/easy-components-min.css">
+    <link rel="stylesheet" href="style/css/easy-components.min.css">
 </head>
 
 <body>
@@ -14,7 +14,6 @@
         <div class="easy-component ec-listbox">
             <div class="select">
                 <div class="selected" data-placeholder="Select Item"></div>
-                <span class="arrow"></span>
             </div>
             <div class="list">
                 <div class="list-item" data-value="one" data-label="Option 1"></div>
@@ -23,7 +22,7 @@
             </div>
         </div>
 
-        <div class="easy-component ec-dialog" data-name="my-dialog">
+        <div class="easy-component ec-dialog" data-name="my-dialog" data-losefocus>
             <div class="heading">
                 <div class="title">
                     Title
@@ -76,7 +75,7 @@
                     itaque veniam.</p>
             </div>
             <div class="bottom-actions">
-                <button class="close-button" data-target="my-dialog2">Close</button>
+                <button class="close-button">Close</button>
             </div>
         </div>
         <div class="dialog-openers">
@@ -92,10 +91,14 @@
                 Open Dialog 3
             </button>
         </div>
+        <div class="toggle-parent">
+            <div class="easy-component ec-toggle"></div>
+        </div>
     </div>
 
     <script src="js/listbox.js"></script>
     <script src="js/dialog.js"></script>
+    <script src="js/toggle.js"></script>
 </body>
 
 </html>

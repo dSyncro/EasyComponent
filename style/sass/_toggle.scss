@@ -1,0 +1,29 @@
+.ec-toggle {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 9999px;
+    box-shadow: var(--ec-component-shadow);
+    transition: background-color 350ms linear;
+    padding: .5em;
+    cursor: pointer;
+
+    &.active {
+        background-color: var(--ec-accent-hex);
+
+        & > .track {
+            flex-direction: row-reverse;
+        }
+    }
+
+    & > .track {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        & > .handle {
+            background-color: var(--ec-bg-hex);
+            border-radius: 9999px;
+        }
+    }
+}

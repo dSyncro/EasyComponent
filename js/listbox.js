@@ -2,7 +2,10 @@ window.addEventListener("load", () => {
     document.querySelectorAll(".easy-component.ec-listbox").forEach(listbox => {
         let select = listbox.querySelector(".select");
         let selected = select.querySelector(".selected");
-        let arrow = select.querySelector(".arrow");
+
+        let arrow = document.createElement("span");
+        arrow.classList.add("arrow");
+        select.appendChild(arrow);
 
         let list = listbox.querySelector(".list");
         let listItems = list.querySelectorAll(".list-item");

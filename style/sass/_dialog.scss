@@ -40,6 +40,10 @@
     opacity: 0;
     transition: transform 200ms linear, visibility 200ms linear, opacity 200ms linear;
 
+    .close-button {
+        cursor: pointer;
+    }
+
     &.fullwidth {
         width: 100%;
     }

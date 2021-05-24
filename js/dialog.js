@@ -46,6 +46,18 @@ window.addEventListener("load", () => {
             targetDialog.classList.add("opened");
             if (targetDialog.dataset.blocking === "true" || targetDialog.dataset.blocking === "")
                 document.body.classList.add("ec-no-scroll");
+
+            if (targetDialog.dataset.losefocus === "true" || targetDialog.dataset.losefocus === "") {
+                let loseFocus = (e) => {
+                    e.stopPropagation();
+                    let target = e.target;
+                    if (target === targetDialog || targetDialog.contains(target)) return;
+                    closeCurrentDialog();
+                    document.removeEventListener("mouseup", loseFocus);
+                };
+
+                document.addEventListener("mouseup", loseFocus);
+            }
         });
     });
 });
