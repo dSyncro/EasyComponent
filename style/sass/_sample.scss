@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    background-image: linear-gradient(to bottom right, #ff9671, #ffc75f);
+    background-image: linear-gradient(to bottom right, #00E5FF, #52F7CC);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -22,8 +22,36 @@ body {
     align-items: center;
 }
 
+button {
+    border: none;
+    color: var(--ec-accent-hex);
+    padding: 1em 1.25em;
+    background-color: hsl(var(--ec-accent-h), var(--ec-accent-s), 95%);
+    border-radius: .5em;
+    transition: background-color 200ms linear, transform 200ms linear;
+
+    &:hover {
+        background-color: hsl(var(--ec-accent-h), var(--ec-accent-s), 90%);
+    }
+
+    &:active {
+        transform: scale(.95);
+    }
+}
+
+.dialog-openers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+
+    &>:not(last-child) {
+        margin-right: 1rem;
+    }
+}
+
 .content-wrapper {
-    background: hsl(0, 0, 98%);
+    background: hsl(0, 0%, 98%);
     width: 60%;
     border-radius: 2em;
     padding: 4em;

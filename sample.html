@@ -11,7 +11,7 @@
 
 <body>
     <div class="content-wrapper">
-        <div class="easy-component listbox">
+        <div class="easy-component ec-listbox">
             <div class="select">
                 <div class="selected" data-placeholder="Select Item"></div>
                 <span class="arrow"></span>
@@ -22,9 +22,80 @@
                 <div class="list-item" data-label="Option 3"></div>
             </div>
         </div>
+
+        <div class="easy-component ec-dialog" data-name="my-dialog">
+            <div class="heading">
+                <div class="title">
+                    Title
+                </div>
+                <div class="actions">
+                    <span class="close-button icon-x"></span>
+                </div>
+            </div>
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quod, at adipisci, officiis
+                    praesentium sit nihil quo ex laborum ea quis architecto deleniti impedit sapiente molestiae hic est
+                    itaque veniam.</p>
+            </div>
+            <div class="bottom-actions">
+                <button class="close-button">Close</button>
+            </div>
+        </div>
+
+        <div class="easy-component ec-dialog" data-name="my-dialog2" data-blocking>
+            <div class="heading">
+                <div class="title">
+                    Title 2
+                </div>
+                <div class="actions">
+                    <span class="close-button icon-x"></span>
+                </div>
+            </div>
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quod, at adipisci, officiis
+                    praesentium sit nihil quo ex laborum ea quis architecto deleniti impedit sapiente molestiae hic est
+                    itaque veniam.</p>
+            </div>
+            <div class="bottom-actions">
+                <button class="close-button">Close</button>
+            </div>
+        </div>
+
+        <div class="easy-component ec-dialog" data-name="my-dialog3" data-fullwidth>
+            <div class="heading">
+                <div class="title">
+                    Title 3
+                </div>
+                <div class="actions">
+                    <span class="close-button icon-x"></span>
+                </div>
+            </div>
+            <div class="content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quod, at adipisci, officiis
+                    praesentium sit nihil quo ex laborum ea quis architecto deleniti impedit sapiente molestiae hic est
+                    itaque veniam.</p>
+            </div>
+            <div class="bottom-actions">
+                <button class="close-button" data-target="my-dialog2">Close</button>
+            </div>
+        </div>
+        <div class="dialog-openers">
+            <button class="easy-component ec-dialog-opener" data-target="my-dialog">
+                Open Dialog
+            </button>
+    
+            <button class="easy-component ec-dialog-opener" data-target="my-dialog2">
+                Open Dialog 2
+            </button>
+    
+            <button class="easy-component ec-dialog-opener" data-target="my-dialog3">
+                Open Dialog 3
+            </button>
+        </div>
     </div>
 
     <script src="js/listbox.js"></script>
+    <script src="js/dialog.js"></script>
 </body>
 
 </html>

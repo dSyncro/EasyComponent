@@ -21,18 +21,25 @@
     --ec-accent-s: 91%;
     --ec-accent-l: 65%;
     --ec-accent-hsl: hsl(var(--ec-accent-h), var(--ec-accent-s), var(--ec-accent-l));
+
+    --ec-component-shadow: 0 0.125em 0.4em -0.1em rgba(var(--ec-text-rgb), 0.1),
+        0 0.125em 0.25em -0.1em rgba(var(--ec-text-rgb), 0.1);
 }
 
 .easy-component {
     font-size: 16px;
-    color: var(--ec-text-hex);
+    box-sizing: border-box;
+}
+
+.ec-no-scroll {
+    overflow: hidden;
 }
 
 @font-face {
     font-family: "easy-icons";
     src: url("../../fonts/easy-icons.eot");
     src: url("../../fonts/easy-icons.eot?79220990#iefix") format("embedded-opentype"),
-        url("../../fonts/easy-icons.woff2?79220990") format("woff2"), 
+        url("../../fonts/easy-icons.woff2?79220990") format("woff2"),
         url("../../fonts/easy-icons.woff?79220990") format("woff"),
         url("../../fonts/easy-icons.ttf?79220990") format("truetype"),
         url("../../fonts/easy-icons.svg?79220990#easy-icons") format("svg");
@@ -78,8 +85,12 @@
 
 .icon-chevron-up:before {
     content: "\e800";
-}
+} /* '' */
 
 .icon-chevron-down:before {
     content: "\e801";
-}
+} /* '' */
+
+.icon-x:before {
+    content: "\e803";
+} /* '' */

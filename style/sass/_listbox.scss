@@ -1,4 +1,4 @@
-.easy-component.listbox {
+.ec-listbox {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -15,7 +15,7 @@
         color: var(--ec-text-hex);
         appearance: none;
         border: none;
-        box-shadow: 0 0.125em 0.4em -0.1em rgba(0, 0, 0, 0.1), 0 0.125em 0.25em -0.1em rgba(0, 0, 0, 0.1);
+        box-shadow: var(--ec-component-shadow);
         cursor: pointer;
 
         & > .selected.placeholder {
@@ -46,7 +46,7 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 200ms linear, visibility 200ms linear;
-        box-shadow: 0 0.125em 0.4em -0.1em rgba(0, 0, 0, 0.1), 0 0.125em 0.25em -0.1em rgba(0, 0, 0, 0.1);
+        box-shadow: var(--ec-component-shadow);
 
         &.opened {
             opacity: 1;
