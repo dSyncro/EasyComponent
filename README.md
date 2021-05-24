@@ -1,1 +1,1 @@
-# EasyComponent
+# EasyComponents
