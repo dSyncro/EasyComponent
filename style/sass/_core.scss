@@ -2,10 +2,12 @@
     --ec-bg-hex: #fff;
     --ec-text-hex: #111827;
     --ec-accent-hex: #a855f7;
+    --ec-inactive-hex: #ccc;
 
     --ec-bg-rgb: 255, 255, 255;
     --ec-text-rgb: 17, 24, 39;
     --ec-accent-rgb: 168, 85, 247;
+    --ec-inactive-rgb: 204, 204, 204;
 
     --ec-bg-h: 0;
     --ec-bg-s: 0%;
@@ -21,6 +23,11 @@
     --ec-accent-s: 91%;
     --ec-accent-l: 65%;
     --ec-accent-hsl: hsl(var(--ec-accent-h), var(--ec-accent-s), var(--ec-accent-l));
+
+    --ec-inactive-h: 0;
+    --ec-inactive-s: 0%;
+    --ec-inactive-l: 80%
+    --ec-inactive-hsl: hsl(var(--ec-inactive-h), var(--ec-inactive-s), var(--ec-inactive-l));
 
     --ec-component-shadow: 0 0.125em 0.4em -0.1em rgba(var(--ec-text-rgb), 0.1),
         0 0.125em 0.25em -0.1em rgba(var(--ec-text-rgb), 0.1);

@@ -12,7 +12,6 @@ window.addEventListener("load", () => {
 
         activeDialog.classList.remove("opened");
         document.body.classList.remove("ec-no-scroll");
-
     };
 
     dialogs.forEach(dialog => {

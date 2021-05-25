@@ -1,0 +1,41 @@
+.ec-dropdown {
+    position: relative;
+
+    & > .opener {
+        cursor: pointer;
+    }
+
+    & > .list {
+        position: absolute;
+        top: 110%;
+        overflow: hidden;
+        background-color: var(--ec-bg-hex);
+        border-radius: 0.5em;
+        font-size: 1.25em;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms linear, visibility 200ms linear;
+        box-shadow: var(--ec-component-shadow);
+
+        &.opened {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        & > .list-item {
+            width: 100%;
+            padding: 1em;
+
+            &:hover {
+                background-color: hsl(var(--ec-accent-h), var(--ec-accent-s), 95%);
+                color: var(--ec-accent-hex);
+            }
+
+            &:active,
+            &.selected {
+                color: var(--ec-accent-hex);
+            }
+        }
+    }
+}
