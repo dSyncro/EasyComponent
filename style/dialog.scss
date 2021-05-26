@@ -1,18 +1,3 @@
-.ec-dialog-pool {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    z-index: 9999;
-
-    & > .opened {
-        visibility: visible;
-    }
-}
-
 .ec-dialog-wrapper {
     position: absolute;
     top: 0;

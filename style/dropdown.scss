@@ -26,16 +26,6 @@
         & > .list-item {
             width: 100%;
             padding: 1em;
-
-            &:hover {
-                background-color: hsl(var(--ec-accent-h), var(--ec-accent-s), 95%);
-                color: var(--ec-accent-hex);
-            }
-
-            &:active,
-            &.selected {
-                color: var(--ec-accent-hex);
-            }
         }
     }
 }
