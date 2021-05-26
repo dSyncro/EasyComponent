@@ -1,6 +1,17 @@
 # EasyComponents
 Easy Components is a lightweight library that provides some resuable components that can integrate seamlessly in your website or web application. You don't need to write any script: every component is full featured! You can see a live sample of all the components at [this page](https://dsyncro.github.io/EasyComponents/sample).
 
+## Table of Contents
+* [Quick Start](#quick-start)
+  + [CSS](#css)
+  + [JS](#js)
+* [Installation](#installation)
+  + [Files](#files)
+  + [Download](#download)
+* [Usage](#usage)
+  + [Semantic Independence](#semantic-independence)
+* [Full Documentation](#full-documentation)
+
 ## Quick Start
 To get started just include the compiled script and style files in your page. You can use jsDeliver, a free open source CDN. Note that both the CSS and the JS file must be included in order for the library to work as intended.
 
@@ -36,6 +47,14 @@ Please note that you need to include the `.css` and `.js` files according to you
 ...
 <script src="path-to-your-installation/easy-components.min.js"></script>
 ```
+
+## Usage
+
+After you included EasyComponents in your project you can start using its components.
+
+### Semantic Independence
+
+Easy components do not enforce you to use a specific tags to compose your components.
 
 ## Full Documentation
 You can find the full documentation in the project [Wiki](https://github.com/dSyncro/EasyComponents/Wiki). The Wiki will help you understand any aspect of this project.
