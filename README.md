@@ -3,13 +3,12 @@ Easy Components is a lightweight library that provides some resuable components 
 
 ## Table of Contents
 * [Quick Start](#quick-start)
-  + [CSS](#css)
-  + [JS](#js)
+	+ [CSS](#css)
+	+ [JS](#js)
 * [Installation](#installation)
-  + [Files](#files)
-  + [Download](#download)
+	+ [Files](#files)
+	+ [Download](#download)
 * [Usage](#usage)
-  + [Semantic Independence](#semantic-independence)
 * [Full Documentation](#full-documentation)
 
 ## Quick Start
@@ -50,11 +49,75 @@ Please note that you need to include the `.css` and `.js` files according to you
 
 ## Usage
 
-After you included EasyComponents in your project you can start using its components.
+After you included EasyComponents in your project you can start using its components. Easy components do not enforce you to use a specific tags to compose your components. This means that you can use tags you think are the most appropriate in your vary own situations.
 
-### Semantic Independence
+### Components
+You can initialize a component simply by adding two classes to it: the `easy-component` class and the class that identifies your component.
+The `easy-component` class is the base class for any easy component therefore it is mandadory.
 
-Easy components do not enforce you to use a specific tags to compose your components.
+Each components is identified by one specific class as shown in the following table
+| Component | Class |
+|---|---|
+| Dialog | `ec-dialog` |
+| Dialog Opener | `ec-dialog-opener` |
+| Dropdown | `ec-dropdown` |
+| Listbox | `ec-listbox` |
+| Toggle | `ec-toggle` |
+
+For example if you want to create a toggle you can write
+```html
+<div class="easy-component ec-toggle"></div>
+```
+
+Please note that this is not always the case. Each component might need addition data or layout structure as described in the following sections.
+
+#### Dialog
+
+A Dialog is a small window that appear in front of your page (like a popup or a JS alert).
+
+It can be created as follows:
+
+```html
+<div class="easy-component ec-dialog" data-name="my-dialog">
+  <div class="heading">
+    <div class="title">
+      Title
+    </div>
+    <div class="actions">
+      <span class="close-button">X</span>
+    </div>
+  </div>
+  <div class="content">
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quod, at adipisci, officiis
+      praesentium sit nihil quo ex laborum ea quis architecto deleniti impedit sapiente molestiae hic est
+      itaque veniam.
+    </p>
+  </div>
+  <div class="bottom-actions">
+    <button class="close-button">Close</button>
+  </div>
+</div>
+```
+
+Each children of the dialog with the class `close-button` will be treated as a close button for the dialog.
+
+An `ec-dialog` is made up of three parts, each identified by the corresponding class:
+
+| Name | Class | Description |
+| --- | --- | --- |
+| Heading | `heading` | Contains the header of the dialog |
+| Content | `content` | Contains the content of the dialog |
+| Bottom Actions | `bottom-actions` | Contains the bottom part of the dialog |
+
+Dialog has some data attributes:
+| Attribute | Description | Is mandadory? |
+| --- | --- | --- |
+| `data-name` | The name of the dialog, necessary to be targeted by dialog openers. | Yes |
+| `data-fullwidth` | When set the dialog uses all the available horizontal space. | No |
+| `data-blocking` | When set the dialog blocks page scrolling. | No |
+| `data-losefocus` | When set the dialog closes when a click is performed outside of it. | No |
+
 
 ## Full Documentation
 You can find the full documentation in the project [Wiki](https://github.com/dSyncro/EasyComponents/Wiki). The Wiki will help you understand any aspect of this project.
