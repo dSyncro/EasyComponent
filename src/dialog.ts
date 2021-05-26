@@ -1,21 +1,59 @@
-import { Component } from "./component";
-import EC from "./EasyComponents";
+import Component from "./component";
+import instance from "./instance";
 
 import "../style/dialog.scss";
 
 export class Dialog extends Component {
 
-    private _isFullwidth: boolean;
     private closeDelegate = this.close.bind(this);
 
-    public name: string;
-
-    public get fullwidth() {
-        return this._isFullwidth;
+    public get name() {
+        return this.element.dataset.name || "";
     }
 
-    public set fullwidth(value: boolean) {
-        this._isFullwidth = value;
+    public set name(newName: string) {
+        this.element.dataset.name = newName;
+    }
+
+    public get isOpened() {
+        return this.element.classList.contains("opened");
+    }
+
+    public set isOpened(value: Boolean) {
+        if (value)
+            this.element.classList.add("opened");
+        else this.element.classList.remove("opened");
+    }
+
+    public get isFullwidth() {
+        return this.element.dataset.fullwidth === "true" ||
+            this.element.dataset.fullwidth === "";
+    }
+
+    public set isFullwidth(value: boolean) {
+        this.element.dataset.fullwidth = value.toString();
+
+        if (value)
+            this.element.classList.add("fullwidth");
+        else this.element.classList.remove("fullwidth");
+    }
+
+    public get isBlocking() {
+        return this.element.dataset.blocking === "true" ||
+            this.element.dataset.blocking === "";
+    }
+
+    public set isBlocking(value: boolean) {
+        this.element.dataset.blocking = value.toString();
+    }
+
+    public get canLoseFocus() {
+        return this.element.dataset.losefocus === "true" ||
+            this.element.dataset.losefocus === "";
+    }
+
+    public set canLoseFocus(value: boolean) {
+        this.element.dataset.losefocus = value.toString();
     }
 
     constructor(dialog: HTMLElement) {
@@ -27,22 +65,23 @@ export class Dialog extends Component {
         const dialogWrapper = document.createElement("div");
         dialogWrapper.classList.add("easy-component", "ec-dialog-wrapper");
         dialogWrapper.appendChild(this.element);
-        EC.dialogPool.addDialog(this);
-
-        if (this._isFullwidth = this.element.dataset.fullwidth === "true" || this.element.dataset.fullwidth === "")
-            this.element.classList.add("fullwidth");
-
-        this.name = this.element.dataset.name || "";
+        instance.dialogPool.addDialog(this);
 
         this.element.querySelectorAll(".close-button").forEach(btn => btn.addEventListener("click", this.closeDelegate));
     }
 
     public open(): void {
-        EC.dialogPool.openDialog(this);
+        instance.dialogPool.openDialog(this);
+
+        const openEvent = new CustomEvent("onOpen", { bubbles: true, cancelable: true });
+        this.element.dispatchEvent(openEvent);
     }
 
     public close(): void {
-        EC.dialogPool.closeDialog(this);
+        instance.dialogPool.closeDialog(this);
+
+        const closeEvent = new CustomEvent("onClose", { bubbles: true, cancelable: true });
+        this.element.dispatchEvent(closeEvent);
     }
 }
 

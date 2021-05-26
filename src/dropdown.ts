@@ -1,4 +1,5 @@
 import Component from "./component";
+
 import "../style/dropdown.scss";
 
 export class Dropdown extends Component {
@@ -10,7 +11,7 @@ export class Dropdown extends Component {
 
     constructor(element: HTMLElement) {
         super(element);
-        this.list = this.element.querySelector(".list")!;
+        this.list = this.element.querySelector(".list");
         this.element.addEventListener("click", this.onDropdownClickDelegate);
     }
 

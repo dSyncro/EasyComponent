@@ -1,9 +1,15 @@
 import Component from "./component";
-import EC from "./EasyComponents";
+import instance from "./instance";
 
 export class DialogOpener extends Component {
 
-    public targetName: string;
+    public get targetName() {
+        return this.element.dataset.target;
+    }
+
+    public set targetName(name: string) {
+        this.element.dataset.target = name;
+    }
 
     private openDialogDelegate = this.openDialog.bind(this);
 
@@ -13,11 +19,29 @@ export class DialogOpener extends Component {
     }
 
     public openDialog(): void {
-        this.targetName = this.element.dataset.target;
         if (!this.targetName) return;
 
-        const target = EC.dialogPool.findDialogByName(this.targetName);
-        EC.dialogPool.openDialog(target);
+        const target = instance.dialogPool.findDialogByName(this.targetName);
+
+        const launchEvent = new CustomEvent("onLaunch", {
+            bubbles: true,
+            cancelable: true,
+            detail: {
+                target
+            }
+        });
+        this.element.dispatchEvent(launchEvent);
+
+        instance.dialogPool.openDialog(target);
+
+        const openEvent = new CustomEvent("onOpen", {
+            bubbles: true,
+            cancelable: true,
+            detail: {
+                target
+            }
+        });
+        this.element.dispatchEvent(openEvent);
     }
 
     private init(): void {
