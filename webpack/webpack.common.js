@@ -39,7 +39,7 @@ module.exports = {
         library: 'EC',
         libraryTarget: 'umd',
         globalObject: 'this',
-        path: path.resolve(__dirname, "../build")
+        path: path.resolve(__dirname, "../dist")
     },
     watch: true
 }
