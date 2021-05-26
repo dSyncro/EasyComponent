@@ -56,6 +56,7 @@ You can initialize a component simply by adding two classes to it: the `easy-com
 The `easy-component` class is the base class for any easy component therefore it is mandadory.
 
 Each components is identified by one specific class as shown in the following table
+
 | Component | Class |
 |---|---|
 | Dialog | `ec-dialog` |
@@ -111,6 +112,7 @@ An `ec-dialog` is made up of three parts, each identified by the corresponding c
 | Bottom Actions | `bottom-actions` | Contains the bottom part of the dialog |
 
 Dialog has some data attributes:
+
 | Attribute | Description | Is mandadory? |
 | --- | --- | --- |
 | `data-name` | The name of the dialog, necessary to be targeted by dialog openers. | Yes |
