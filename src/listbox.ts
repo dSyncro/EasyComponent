@@ -29,8 +29,8 @@ export class Listbox extends Component {
     }
 
     private init(): void {
-        this.selectDocElement = this.element.querySelector(".select") as HTMLElement;
-        this.selectedDocElement = this.selectDocElement.querySelector(".selected") as HTMLElement;
+        this.selectDocElement = this.element.querySelector<HTMLElement>(".select");
+        this.selectedDocElement = this.selectDocElement.querySelector<HTMLElement>(".selected");
 
         this.arrowDocElement = document.createElement("span");
         this.arrowDocElement.classList.add("arrow", "icon-chevron-down");
@@ -46,7 +46,7 @@ export class Listbox extends Component {
             this.selectedDocElement.classList.add("placeholder");
         }
 
-        this.selectedDocElement.addEventListener("click", this.onListboxClickDelegate);
+        this.element.addEventListener("click", this.onListboxClickDelegate);
 
         this.items.forEach(item => {
             item.innerText = item.dataset.label;
@@ -78,7 +78,7 @@ export class Listbox extends Component {
     public close(): void {
         this.listDocElement.classList.remove("opened");
         this.arrowDocElement.classList.replace("icon-chevron-up", "icon-chevron-down");
-        this.selectDocElement.addEventListener("click", this.onListboxClickDelegate);
+        this.element.addEventListener("click", this.onListboxClickDelegate);
         document.removeEventListener("click", this.onPageClickDelegate);
 
         let closeEvent = new CustomEvent("onClose", { bubbles: true, cancelable: true });
@@ -89,7 +89,7 @@ export class Listbox extends Component {
         this.listDocElement.classList.add("opened");
         this.arrowDocElement.classList.replace("icon-chevron-down", "icon-chevron-up");
         document.addEventListener("click", this.onPageClickDelegate);
-        this.selectDocElement.removeEventListener("click", this.onListboxClickDelegate);
+        this.element.removeEventListener("click", this.onListboxClickDelegate);
 
         let openEvent = new CustomEvent("onOpen", { bubbles: true, cancelable: true });
         this.element.dispatchEvent(openEvent);

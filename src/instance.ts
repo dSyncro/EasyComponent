@@ -2,6 +2,7 @@ import Dialog from "./dialog";
 import DialogOpener from "./dialogOpener";
 import DialogPool from "./dialogPool";
 import Dropdown from "./dropdown";
+import Form from "./form";
 import Listbox from "./listbox";
 import Toggle from "./toggle";
 
@@ -12,30 +13,36 @@ export namespace instance {
     export let toggles: Toggle[];
     export let dialogOpeners: DialogOpener[];
     export let listboxs: Listbox[];
+    export let forms: Form[];
 
     export function init(): void {
-        document.querySelectorAll(".easy-component.ec-dropdown").forEach(dropdown => {
+        document.querySelectorAll<HTMLElement>(".easy-component.ec-dropdown").forEach(dropdown => {
             dropdowns = [];
-            dropdowns.push(new Dropdown(dropdown as HTMLElement));
+            dropdowns.push(new Dropdown(dropdown));
         });
     
-        document.querySelectorAll(".easy-component.ec-toggle").forEach(toggle => {
+        document.querySelectorAll<HTMLElement>(".easy-component.ec-toggle").forEach(toggle => {
             toggles = [];
-            toggles.push(new Toggle(toggle as HTMLElement));
+            toggles.push(new Toggle(toggle));
         });
         
-        document.querySelectorAll(".easy-component.ec-dialog").forEach(dialog => {
-            new Dialog(dialog as HTMLElement);
+        document.querySelectorAll<HTMLElement>(".easy-component.ec-dialog").forEach(dialog => {
+            new Dialog(dialog);
         });
     
-        document.querySelectorAll(".easy-component.ec-dialog-opener").forEach(dialogOpener => {
+        document.querySelectorAll<HTMLElement>(".easy-component.ec-dialog-opener").forEach(dialogOpener => {
             dialogOpeners = [];
-            dialogOpeners.push(new DialogOpener(dialogOpener as HTMLElement));
+            dialogOpeners.push(new DialogOpener(dialogOpener));
         });
     
-        document.querySelectorAll(".easy-component.ec-listbox").forEach(listbox => {
+        document.querySelectorAll<HTMLElement>(".easy-component.ec-listbox").forEach(listbox => {
             listboxs = [];
-            listboxs.push(new Listbox(listbox as HTMLElement));
+            listboxs.push(new Listbox(listbox));
+        });
+
+        document.querySelectorAll<HTMLFormElement>("form.easy-component.ec-form").forEach(form => {
+            forms = [];
+            forms.push(new Form(form));
         });
     }
 
