@@ -3,9 +3,13 @@ import instance from "./instance";
 
 import "../style/dialog.scss";
 
-export class Dialog extends Component {
+export class Dialog implements Component {
 
     private closeDelegate = this.close.bind(this);
+
+    constructor(readonly element: HTMLElement) {
+        this.init();
+    }
 
     public get name() {
         return this.element.dataset.name || "";
@@ -54,11 +58,6 @@ export class Dialog extends Component {
 
     public set canLoseFocus(value: boolean) {
         this.element.dataset.losefocus = value.toString();
-    }
-
-    constructor(dialog: HTMLElement) {
-        super(dialog);
-        this.init();
     }
 
     private init(): void {

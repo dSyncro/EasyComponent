@@ -2,7 +2,7 @@ import Component from "./component";
 
 import "../style/listbox.scss";
 
-export class Listbox extends Component {
+export class Listbox implements Component {
 
     public items: NodeListOf<HTMLElement>;
     public selected: HTMLElement;
@@ -23,8 +23,7 @@ export class Listbox extends Component {
         this.element.dataset.value = val;
     }
 
-    constructor(element: HTMLElement) {
-        super(element);
+    constructor(readonly element: HTMLElement) {
         this.init();
     }
 

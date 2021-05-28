@@ -1,9 +1,7 @@
-export class Component {
-    readonly element: HTMLElement;
+type ComponentElement = HTMLFormElement |HTMLElement | Element;
 
-    constructor(htmlElement: HTMLElement) {
-        this.element = htmlElement;
-    }
+export interface Component {
+    element: ComponentElement;
 }
 
 export default Component;

@@ -1,21 +1,32 @@
 import Dialog from "./dialog";
+import Component from "./component";
 
 import "../style/dialogPool.scss";
 
-export class DialogPool {
+export class DialogPool implements Component {
 
     private _activeDialog: Dialog;
     private loseFocusDelegate = this.loseFocus.bind(this);
 
     public dialogs: Dialog[] = [];
-    public element: HTMLElement;
+
+    private _element: HTMLElement;
+    public get element() { return this._element; }
 
     constructor() {
-        window.addEventListener("load", () => {
-            this.element = document.createElement("div");
-            this.element.classList.add("easy-component", "ec-dialog-pool");
-            document.body.appendChild(this.element);
+        // Generate element only when document is ready
+        if (document.readyState === "complete")
+            this.generateElement();
+        else document.addEventListener("readystatechange", () => {
+            if (document.readyState === "complete")
+                this.generateElement();
         });
+    }
+
+    private generateElement() {
+        this._element = document.createElement("div");
+        this.element.classList.add("easy-component", "ec-dialog-pool");
+        document.body.appendChild(this.element);
     }
 
     public get activeDialog() {

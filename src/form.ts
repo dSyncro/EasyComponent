@@ -1,8 +1,10 @@
-export class Form {
+import Component from "./component";
+
+export class Form implements Component {
 
     private onSubmitDelegate = this.onSubmit.bind(this);
 
-    constructor(public element: HTMLFormElement) {
+    constructor(readonly element: HTMLFormElement) {
         this.element.addEventListener("submit", this.onSubmitDelegate);
     }
 

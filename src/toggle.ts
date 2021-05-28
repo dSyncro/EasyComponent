@@ -1,7 +1,7 @@
 import Component from "./component";
 import "../style/toggle.scss";
 
-export class Toggle extends Component {
+export class Toggle implements Component {
 
     private track: HTMLElement;
     private handle: HTMLElement;
@@ -9,8 +9,7 @@ export class Toggle extends Component {
 
     private updateHandleDelegate = this.updateHandle.bind(this);
 
-    constructor(element: HTMLElement) {
-        super(element);
+    constructor(readonly element: HTMLElement) {
         this.init();
     }
 

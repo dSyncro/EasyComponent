@@ -2,15 +2,14 @@ import Component from "./component";
 
 import "../style/dropdown.scss";
 
-export class Dropdown extends Component {
+export class Dropdown implements Component {
 
     private list: HTMLElement;
 
     private onDropdownClickDelegate = this.onDropdownClick.bind(this);
     private onPageClickDelegate = this.onPageClick.bind(this);
 
-    constructor(element: HTMLElement) {
-        super(element);
+    constructor(readonly element: HTMLElement) {
         this.list = this.element.querySelector(".list");
         this.element.addEventListener("click", this.onDropdownClickDelegate);
     }
