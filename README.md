@@ -1,4 +1,4 @@
-# EasyComponents
+# Easy Components
 Easy Components is a lightweight library that provides some resuable components that can integrate seamlessly in your website or web application. You don't need to write any script: every component is full featured! You can see a live sample of all the components at [this page](https://dsyncro.github.io/EasyComponents/sample).
 
 ## Table of Contents
